@@ -69,13 +69,24 @@ module.exports = {
       // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
-	goerli: {
+	//goerli: {
+	//	provider: () => {
+	//		const mnemonic=process.env["MNEMONIC"]
+	//		return new HDWalletProvider(mnemonic, "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161");
+	//		//return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545");
+	//	},
+	//	network_id: "*",
+	//},
+	goerly: {
 		provider: () => {
 			const mnemonic=process.env["MNEMONIC"]
-			return new HDWalletProvider(mnemonic, "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161");
-			//return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545");
+			const project_id =process.env["INFURA_PROJECT_ID"]
+			return new HDWalletProvider(
+				mnemonic,
+				"https://goerli.infura.io/v3/b7cadc99c6f84ee1adadd1324b0efec1"
+			);
 		},
-		network_id: "*",
+		network_id:"*"
 	},
     // Useful for private networks
     // private: {
